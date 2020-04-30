@@ -29,11 +29,12 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
     // à l'aide du menu contextuel "Présentoir --> Engagements".
     // Notez cependant que ce dernier ne peut saisir les objets primitifs
     // du présentoir (les objets sans constructeur, comme int, float, etc.).
-
+   
     /**
      * Constructeur de la classe-test AuditeurCNAMTest.
      */
-    public AuditeurCNAMTest() {
+    public AuditeurCNAMTest(String TestNom,String NumEtudiant) {
+    
     }
 
     /**
@@ -122,9 +123,20 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
         assertEquals(" nom avec accent (é devient e) ? ", "chloe_c",
             auditeur1.login());
     }
-
-    public void testHello()
-    {
+        public void test_avec_pointvirgule() {
+        question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("Chlo;",
+                "chlo;", "12345");
+        assertEquals("Mme Chlo; chlo; ", "Chlo;", auditeur1.nom());
+        assertEquals("Mme Chlo; chlo; ", "chlo;", auditeur1.prenom());
+        assertEquals(" pointvirgule (; devient _) ? ", "chlo__c", auditeur1.login());
+    }
+    
+    public void test_avec_parenthese() {
+        question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("Chlo)",
+                "chlo)", "12345");
+        assertEquals("Mme Chlo) chlo) ", "Chlo)", auditeur1.nom());
+        assertEquals("Mme Chlo) chlo) ", "chlo)", auditeur1.prenom());
+        assertEquals(" parenthese () devient _) ? ", "chlo__c", auditeur1.login());
     }
 }
 

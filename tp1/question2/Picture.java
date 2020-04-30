@@ -50,7 +50,7 @@ public class Picture {
         roof.makeVisible();
 
         sun = new Circle();
-        sun.changeColor("blue");
+        sun.changeColor("yellow");
         sun.moveHorizontal(180);
         sun.moveVertical(-10);
         sun.changeSize(60);
@@ -83,7 +83,8 @@ public class Picture {
         }
     }
     
-    public void slowMoveVertical(int distance) {
-        sun.slowMoveVertical(distance);
+    public void slowMoveVertical(int distance,boolean terreEstFixe ) {
+        if(terreEstFixe){ 
+        sun.slowMoveVertical(distance);}
     }
 }
